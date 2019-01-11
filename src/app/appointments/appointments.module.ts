@@ -24,7 +24,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {AppointmentsRoutingModule} from './appointments-routing.module';
-import {AppointmentListComponent} from './specialty-list/appointment-list.component';
+import {AppointmentListComponent} from './appointment-list/appointment-list.component';
+import {AppointmentService} from './appointment.service';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {AppointmentListComponent} from './specialty-list/appointment-list.compon
   ],
   declarations: [
     AppointmentListComponent
-  ]
+  ],
+  providers: [AppointmentService]
 })
 export class AppointmentsModule {
 }

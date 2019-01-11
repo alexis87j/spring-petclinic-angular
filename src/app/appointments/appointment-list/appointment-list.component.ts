@@ -20,13 +20,32 @@
  * @author Vitaliy Fedoriv
  */
 
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Appointment} from '../appointment';
+import {AppointmentService} from '../appointment.service';
 
 @Component({
   selector: 'app-appointment-list',
   templateUrl: './appointment-list.component.html',
   styleUrls: ['./appointment-list.component.css']
 })
-export class AppointmentListComponent {
+export class AppointmentListComponent implements OnInit {
 
+  errorMessage: string;
+  no_appoinments = false;
+  appointments: Appointment[] = [{owner: 'Testowner',
+  petname: 'Testtier',
+  pettype: 'Testtype',
+  date: '2016-09-07',
+  description: 'test'}];
+
+  constructor(private appointmentService: AppointmentService) {
+    this.appointments = [];
+  }
+
+  ngOnInit() {
+    this.appointmentService.getAppointments().subscribe(
+      appoinments => this.appointments = appoinments,
+      error => this.errorMessage = <any> error);
+  }
 }

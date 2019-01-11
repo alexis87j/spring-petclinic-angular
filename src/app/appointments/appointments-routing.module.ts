@@ -23,7 +23,7 @@
 
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {AppointmentListComponent} from './specialty-list/appointment-list.component';
+import {AppointmentListComponent} from './appointment-list/appointment-list.component';
 
 const specialtyRoutes: Routes = [
   {path: 'appointments', component: AppointmentListComponent}
